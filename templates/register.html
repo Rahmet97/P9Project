@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+<body>
+
+    {% if messages %}
+    {% for message in messages %}
+    <span style="color: red;">{{ message }}</span>
+    {% endfor %}
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+        {{ register_form.first_name }}<br/>
+        {{ register_form.last_name }}<br/>
+        {{ register_form.email }}<br/>
+        {{ register_form.username }}<br/>
+        {{ register_form.password1 }}<br/>
+        {{ register_form.password2 }}<br/>
+        <button type="submit">OK</button>
+    </form>
+</body>
+</html>

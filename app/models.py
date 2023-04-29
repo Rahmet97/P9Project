@@ -75,3 +75,13 @@ class UserProductView(models.Model):
 
     def __str__(self):
         return self.product.address
+
+
+class Message(models.Model):
+    full_name = models.CharField(max_length=50)
+    email = models.EmailField()
+    subject = models.CharField(max_length=50)
+    message = models.TextField()
+
+    def __str__(self):
+        return self.subject

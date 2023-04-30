@@ -4,9 +4,9 @@ from django.contrib.auth.views import PasswordResetView, PasswordResetDoneView, 
 
 
 urlpatterns = [
-    path('register', register),
-    path('login', login),
-    path('logout', logout),
+    path('register', register, name='register'),
+    path('login', login, name='login'),
+    path('logout', logout, name='logout'),
 
     # password reset urls
     path('reset-password',

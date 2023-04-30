@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from datetime import datetime
 
 
 class Region(models.Model):
@@ -42,9 +43,11 @@ class Product(models.Model):
     image3 = models.ImageField(upload_to='pics', blank=True, null=True)
     image4 = models.ImageField(upload_to='pics', blank=True, null=True)
     image5 = models.ImageField(upload_to='pics', blank=True, null=True)
+    posted_time = models.DateField(auto_now=True)
     district = models.ForeignKey(District, on_delete=models.SET_NULL, blank=True, null=True)
     description = models.TextField()
     sale_rent = models.IntegerField(choices=sale_rent)
+    author = models.ForeignKey(User, on_delete=models.SET_NULL, blank=True, null=True)
 
     def __str__(self):
         return self.address

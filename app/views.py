@@ -4,6 +4,8 @@ from django.views import View
 from django.core.mail import send_mail
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
+from django.utils.translation import activate, get_language
+from django.urls import reverse
 
 
 class Home(View):
@@ -122,3 +124,12 @@ class Contact(View):
         msg.save()
 
         return redirect('/contact')
+
+
+def set_language(request):
+    if request.method == 'POST':
+        language = request.POST.get('language', None)
+        if language:
+            request.session[LANGUAGE_SESSION_KEY] = language
+            activate(language)
+        return redirect(request.META.get('HTTP_REFERER', reverse('home')))

@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,10 +54,10 @@
 					<ul class="d-flex flex-row align-items-start justify-content-start">
 						{% if user.is_authenticated %}
 						<li style="color: white !important;">{{ user.first_name }} {{ user.last_name }}</li>
-						<li><a href="{% url 'logout' %}">Logout</a></li>
+						<li><a href="{% url 'logout' %}">{% translate 'Logout' %}</a></li>
 						{% else %}
-						<li><a href="{% url 'login' %}">Login</a></li>
-						<li><a href="{% url 'register' %}">Register</a></li>
+						<li><a href="{% url 'login' %}">{% translate 'Login' %}</a></li>
+						<li><a href="{% url 'register' %}">{% translate 'Register' %}</a></li>
 						{% endif %}
 					</ul>
 				</div>

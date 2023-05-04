@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from datetime import datetime
+from django.utils.translation import gettext_lazy as _
 
 
 class Region(models.Model):
@@ -25,15 +26,15 @@ class Category(models.Model):
         return self.name
     
     class Meta:
-        verbose_name = 'Category'
-        verbose_name_plural = 'Categories'
+        verbose_name = _('Category')
+        verbose_name_plural = _('Categories')
 
 
 class Product(models.Model):
 
     sale_rent = (
-        (1, 'For Sale'),
-        (2, 'For Rent')
+        (1, _('For Sale')),
+        (2, _('For Rent'))
     )
 
     address = models.CharField(max_length=150)
